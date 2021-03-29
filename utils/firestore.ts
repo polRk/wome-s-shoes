@@ -2,9 +2,11 @@ import * as admin from 'firebase-admin'
 
 try {
   admin.initializeApp({
-    credential: admin.credential.cert(
-      'women-s-shoes-firebase-adminsdk-bu86q-e0d8eff5c4.json'
-    ),
+    credential: admin.credential.cert({
+      projectId: process.env.PROJECT_ID,
+      clientEmail: process.env.CLIENT_EMAIL,
+      privateKey: process.env.PRIVATE_KEY,
+    }),
   })
 } catch (error) {
   if (!/already exists/u.test(error.message)) {
