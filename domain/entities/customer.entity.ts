@@ -1,6 +1,8 @@
+export type CustomerId = string
+
 export interface ICustomer {
   // Уникальный идентификатор покупателя.
-  id: string
+  id: CustomerId
 
   // Имя покупателя.
   name: string
@@ -14,13 +16,13 @@ export interface ICustomer {
 
 export class CustomerEntity implements ICustomer {
   constructor(
-    private _id: string,
+    private _id: CustomerId,
     public name: string,
     public email: string,
     public phone: string
   ) {}
 
-  get id(): string {
+  get id(): CustomerId {
     return this._id
   }
 }

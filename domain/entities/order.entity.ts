@@ -1,5 +1,7 @@
-import { CustomerEntity } from './customer.entity'
-import { ProductEntity } from './product.entity'
+import { CustomerEntity, ICustomer } from './customer.entity'
+import { IProduct, ProductEntity } from './product.entity'
+
+export type OrderId = string
 
 export interface IOrderAddress {
   // Страна
@@ -17,7 +19,7 @@ export interface IOrderAddress {
 
 export interface IOrder {
   // Уникальный идентификатор заказа.
-  id: string
+  id: OrderId
 
   // Номер заказа.
   number: string
@@ -32,15 +34,15 @@ export interface IOrder {
   shippingAddress: IOrderAddress
 
   // Заказчик.
-  customer: CustomerEntity
+  customer: ICustomer
 
   // Позиции в заказе.
-  products: ProductEntity[]
+  products: IProduct[]
 }
 
 export class OrderEntity implements IOrder {
   constructor(
-    private _id: string,
+    private _id: OrderId,
     public number: string,
     public price: number,
     public billingAddress: IOrderAddress,
@@ -49,7 +51,7 @@ export class OrderEntity implements IOrder {
     public products: ProductEntity[]
   ) {}
 
-  get id(): string {
+  get id(): OrderId {
     return this._id
   }
 }

@@ -74,7 +74,7 @@ export interface IProduct {
 
 export class ProductEntity implements IProduct {
   constructor(
-    private _id: string,
+    private _id: ProductId,
     private _slug: string,
     public title: string,
     public description: string,
@@ -85,7 +85,7 @@ export class ProductEntity implements IProduct {
     public variants: IProductVariant[]
   ) {}
 
-  get id(): string {
+  get id(): ProductId {
     return this._id
   }
 
