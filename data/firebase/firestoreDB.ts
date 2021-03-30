@@ -41,13 +41,19 @@ export class FirestoreDB implements Db {
     return querySnapshot.docs[0].data()
   }
 
-  async getActiveProducts(): Promise<ProductEntity[]> {
-    const querySnapshot = await this.db
+  async getActiveProducts(
+    limit?: number,
+    offset?: number
+  ): Promise<ProductEntity[]> {
+    let query = this.db
       .collection('products')
       .withConverter(productConverter)
       .where('status', '==', ProductStatus.ACTIVE)
-      .get()
 
+    if (limit) query = query.limit(limit)
+    if (offset) query = query.offset(offset)
+
+    const querySnapshot = await query.get()
     if (querySnapshot.empty) return []
 
     return querySnapshot.docs.map((doc) => doc.data())

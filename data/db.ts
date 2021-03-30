@@ -5,7 +5,7 @@ export interface Db {
 
   getProductBySlug(slug: string): Promise<ProductEntity | null>
 
-  getActiveProducts(): Promise<ProductEntity[]>
+  getActiveProducts(limit?: number, offset?: number): Promise<ProductEntity[]>
 
   createProduct(data: ProductEntity): Promise<ProductEntity>
 

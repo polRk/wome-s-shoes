@@ -16,6 +16,8 @@ jest.mock('firebase-admin', () => {
         doc: jest.fn().mockReturnThis(),
         withConverter: jest.fn().mockReturnThis(),
         where: jest.fn().mockReturnThis(),
+        limit: jest.fn().mockReturnThis(),
+        offset: jest.fn().mockReturnThis(),
         get: jest.fn().mockResolvedValue({
           exists: true,
           data: jest.fn(),
@@ -78,6 +80,15 @@ describe('FirestoreDB', () => {
         ProductStatus.ACTIVE
       )
       expect(firestore.collection('').get).toBeCalled()
+    })
+
+    test('should call with defined pagination parameters', async () => {
+      const db = new FirestoreDB()
+
+      await db.getActiveProducts(100, 100)
+
+      expect(firestore.collection('').limit).toBeCalledWith(100)
+      expect(firestore.collection('').offset).toBeCalledWith(100)
     })
   })
 
