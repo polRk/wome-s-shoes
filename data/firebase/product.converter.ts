@@ -5,9 +5,8 @@ import {
 import { IProduct, ProductEntity } from '../../domain/entities/product.entity'
 
 export const productConverter: FirestoreDataConverter<ProductEntity> = {
-  toFirestore(productEntity: ProductEntity): IProduct {
+  toFirestore(productEntity: ProductEntity): Omit<IProduct, 'id'> {
     return {
-      id: productEntity.id,
       slug: productEntity.slug,
       title: productEntity.title,
       description: productEntity.description,
@@ -23,7 +22,7 @@ export const productConverter: FirestoreDataConverter<ProductEntity> = {
     const data = snapshot.data()
 
     return new ProductEntity(
-      data.id,
+      snapshot.id,
       data.slug,
       data.title,
       data.description,

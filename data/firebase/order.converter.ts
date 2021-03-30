@@ -12,9 +12,8 @@ import { customerConverter } from './customer.converter'
 import { productConverter } from './product.converter'
 
 export const orderConverter: FirestoreDataConverter<OrderEntity> = {
-  toFirestore(orderEntity: OrderEntity): IOrder {
+  toFirestore(orderEntity: OrderEntity): Omit<IOrder, 'id'> {
     return {
-      id: orderEntity.id,
       number: orderEntity.number,
       price: orderEntity.price,
       billingAddress: orderEntity.billingAddress,
@@ -32,7 +31,7 @@ export const orderConverter: FirestoreDataConverter<OrderEntity> = {
     const data = snapshot.data()
 
     return new OrderEntity(
-      data.id,
+      snapshot.id,
       data.number,
       data.price,
       data.billingAddress,

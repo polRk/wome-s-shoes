@@ -8,9 +8,8 @@ import {
 } from '../../domain/entities/customer.entity'
 
 export const customerConverter: FirestoreDataConverter<CustomerEntity> = {
-  toFirestore(customerEntity: CustomerEntity): ICustomer {
+  toFirestore(customerEntity: CustomerEntity): Omit<ICustomer, 'id'> {
     return {
-      id: customerEntity.id,
       name: customerEntity.name,
       email: customerEntity.email,
       phone: customerEntity.phone,
@@ -20,6 +19,6 @@ export const customerConverter: FirestoreDataConverter<CustomerEntity> = {
   fromFirestore(snapshot: QueryDocumentSnapshot<ICustomer>): CustomerEntity {
     const data = snapshot.data()
 
-    return new CustomerEntity(data.id, data.name, data.email, data.phone)
+    return new CustomerEntity(snapshot.id, data.name, data.email, data.phone)
   },
 }
