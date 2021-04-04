@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { render, RenderResult } from '@testing-library/react'
 import React from 'react'
 
