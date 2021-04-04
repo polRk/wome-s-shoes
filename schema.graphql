@@ -1,0 +1,2748 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+"columns and relationships of \"category\""
+type category {
+  id: Int!
+  "An object relationship"
+  parent_category: category
+  parent_category_id: Int
+  "An array relationship"
+  products(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): [product!]!
+  "An aggregate relationship"
+  products_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): product_aggregate!
+  slug: String!
+  "An array relationship"
+  sub_categories(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): [category!]!
+  "An aggregate relationship"
+  sub_categories_aggregate(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): category_aggregate!
+  title: String!
+}
+
+"aggregated selection of \"category\""
+type category_aggregate {
+  aggregate: category_aggregate_fields
+  nodes: [category!]!
+}
+
+"aggregate fields of \"category\""
+type category_aggregate_fields {
+  avg: category_avg_fields
+  count(columns: [category_select_column!], distinct: Boolean): Int!
+  max: category_max_fields
+  min: category_min_fields
+  stddev: category_stddev_fields
+  stddev_pop: category_stddev_pop_fields
+  stddev_samp: category_stddev_samp_fields
+  sum: category_sum_fields
+  var_pop: category_var_pop_fields
+  var_samp: category_var_samp_fields
+  variance: category_variance_fields
+}
+
+"aggregate avg on columns"
+type category_avg_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate max on columns"
+type category_max_fields {
+  id: Int
+  parent_category_id: Int
+  slug: String
+  title: String
+}
+
+"aggregate min on columns"
+type category_min_fields {
+  id: Int
+  parent_category_id: Int
+  slug: String
+  title: String
+}
+
+"response of any mutation on the table \"category\""
+type category_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [category!]!
+}
+
+"aggregate stddev on columns"
+type category_stddev_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type category_stddev_pop_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type category_stddev_samp_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate sum on columns"
+type category_sum_fields {
+  id: Int
+  parent_category_id: Int
+}
+
+"aggregate var_pop on columns"
+type category_var_pop_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate var_samp on columns"
+type category_var_samp_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"aggregate variance on columns"
+type category_variance_fields {
+  id: Float
+  parent_category_id: Float
+}
+
+"columns and relationships of \"inventory_item\""
+type inventory_item {
+  cost: numeric!
+  id: Int!
+  size: numeric!
+  sku: String!
+}
+
+"aggregated selection of \"inventory_item\""
+type inventory_item_aggregate {
+  aggregate: inventory_item_aggregate_fields
+  nodes: [inventory_item!]!
+}
+
+"aggregate fields of \"inventory_item\""
+type inventory_item_aggregate_fields {
+  avg: inventory_item_avg_fields
+  count(columns: [inventory_item_select_column!], distinct: Boolean): Int!
+  max: inventory_item_max_fields
+  min: inventory_item_min_fields
+  stddev: inventory_item_stddev_fields
+  stddev_pop: inventory_item_stddev_pop_fields
+  stddev_samp: inventory_item_stddev_samp_fields
+  sum: inventory_item_sum_fields
+  var_pop: inventory_item_var_pop_fields
+  var_samp: inventory_item_var_samp_fields
+  variance: inventory_item_variance_fields
+}
+
+"aggregate avg on columns"
+type inventory_item_avg_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate max on columns"
+type inventory_item_max_fields {
+  cost: numeric
+  id: Int
+  size: numeric
+  sku: String
+}
+
+"aggregate min on columns"
+type inventory_item_min_fields {
+  cost: numeric
+  id: Int
+  size: numeric
+  sku: String
+}
+
+"response of any mutation on the table \"inventory_item\""
+type inventory_item_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [inventory_item!]!
+}
+
+"aggregate stddev on columns"
+type inventory_item_stddev_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate stddev_pop on columns"
+type inventory_item_stddev_pop_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate stddev_samp on columns"
+type inventory_item_stddev_samp_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate sum on columns"
+type inventory_item_sum_fields {
+  cost: numeric
+  id: Int
+  size: numeric
+}
+
+"aggregate var_pop on columns"
+type inventory_item_var_pop_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate var_samp on columns"
+type inventory_item_var_samp_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"aggregate variance on columns"
+type inventory_item_variance_fields {
+  cost: Float
+  id: Float
+  size: Float
+}
+
+"mutation root"
+type mutation_root {
+  "delete data from the table: \"category\""
+  delete_category(
+    "filter the rows which have to be deleted"
+    where: category_bool_exp!
+  ): category_mutation_response
+  "delete single row from the table: \"category\""
+  delete_category_by_pk(id: Int!): category
+  "delete data from the table: \"inventory_item\""
+  delete_inventory_item(
+    "filter the rows which have to be deleted"
+    where: inventory_item_bool_exp!
+  ): inventory_item_mutation_response
+  "delete single row from the table: \"inventory_item\""
+  delete_inventory_item_by_pk(id: Int!): inventory_item
+  "delete data from the table: \"product\""
+  delete_product(
+    "filter the rows which have to be deleted"
+    where: product_bool_exp!
+  ): product_mutation_response
+  "delete data from the table: \"product_attribute\""
+  delete_product_attribute(
+    "filter the rows which have to be deleted"
+    where: product_attribute_bool_exp!
+  ): product_attribute_mutation_response
+  "delete single row from the table: \"product_attribute\""
+  delete_product_attribute_by_pk(label: String!, product_id: Int!, value: String!): product_attribute
+  "delete single row from the table: \"product\""
+  delete_product_by_pk(id: Int!): product
+  "delete data from the table: \"product_image\""
+  delete_product_image(
+    "filter the rows which have to be deleted"
+    where: product_image_bool_exp!
+  ): product_image_mutation_response
+  "delete single row from the table: \"product_image\""
+  delete_product_image_by_pk(product_id: Int!, src: String!): product_image
+  "delete data from the table: \"product_status\""
+  delete_product_status(
+    "filter the rows which have to be deleted"
+    where: product_status_bool_exp!
+  ): product_status_mutation_response
+  "delete single row from the table: \"product_status\""
+  delete_product_status_by_pk(value: String!): product_status
+  "delete data from the table: \"product_tag\""
+  delete_product_tag(
+    "filter the rows which have to be deleted"
+    where: product_tag_bool_exp!
+  ): product_tag_mutation_response
+  "delete single row from the table: \"product_tag\""
+  delete_product_tag_by_pk(product_id: Int!, title: String!): product_tag
+  "insert data into the table: \"category\""
+  insert_category(
+    "the rows to be inserted"
+    objects: [category_insert_input!]!,
+    "on conflict condition"
+    on_conflict: category_on_conflict
+  ): category_mutation_response
+  "insert a single row into the table: \"category\""
+  insert_category_one(
+    "the row to be inserted"
+    object: category_insert_input!,
+    "on conflict condition"
+    on_conflict: category_on_conflict
+  ): category
+  "insert data into the table: \"inventory_item\""
+  insert_inventory_item(
+    "the rows to be inserted"
+    objects: [inventory_item_insert_input!]!,
+    "on conflict condition"
+    on_conflict: inventory_item_on_conflict
+  ): inventory_item_mutation_response
+  "insert a single row into the table: \"inventory_item\""
+  insert_inventory_item_one(
+    "the row to be inserted"
+    object: inventory_item_insert_input!,
+    "on conflict condition"
+    on_conflict: inventory_item_on_conflict
+  ): inventory_item
+  "insert data into the table: \"product\""
+  insert_product(
+    "the rows to be inserted"
+    objects: [product_insert_input!]!,
+    "on conflict condition"
+    on_conflict: product_on_conflict
+  ): product_mutation_response
+  "insert data into the table: \"product_attribute\""
+  insert_product_attribute(
+    "the rows to be inserted"
+    objects: [product_attribute_insert_input!]!,
+    "on conflict condition"
+    on_conflict: product_attribute_on_conflict
+  ): product_attribute_mutation_response
+  "insert a single row into the table: \"product_attribute\""
+  insert_product_attribute_one(
+    "the row to be inserted"
+    object: product_attribute_insert_input!,
+    "on conflict condition"
+    on_conflict: product_attribute_on_conflict
+  ): product_attribute
+  "insert data into the table: \"product_image\""
+  insert_product_image(
+    "the rows to be inserted"
+    objects: [product_image_insert_input!]!,
+    "on conflict condition"
+    on_conflict: product_image_on_conflict
+  ): product_image_mutation_response
+  "insert a single row into the table: \"product_image\""
+  insert_product_image_one(
+    "the row to be inserted"
+    object: product_image_insert_input!,
+    "on conflict condition"
+    on_conflict: product_image_on_conflict
+  ): product_image
+  "insert a single row into the table: \"product\""
+  insert_product_one(
+    "the row to be inserted"
+    object: product_insert_input!,
+    "on conflict condition"
+    on_conflict: product_on_conflict
+  ): product
+  "insert data into the table: \"product_status\""
+  insert_product_status(
+    "the rows to be inserted"
+    objects: [product_status_insert_input!]!,
+    "on conflict condition"
+    on_conflict: product_status_on_conflict
+  ): product_status_mutation_response
+  "insert a single row into the table: \"product_status\""
+  insert_product_status_one(
+    "the row to be inserted"
+    object: product_status_insert_input!,
+    "on conflict condition"
+    on_conflict: product_status_on_conflict
+  ): product_status
+  "insert data into the table: \"product_tag\""
+  insert_product_tag(
+    "the rows to be inserted"
+    objects: [product_tag_insert_input!]!,
+    "on conflict condition"
+    on_conflict: product_tag_on_conflict
+  ): product_tag_mutation_response
+  "insert a single row into the table: \"product_tag\""
+  insert_product_tag_one(
+    "the row to be inserted"
+    object: product_tag_insert_input!,
+    "on conflict condition"
+    on_conflict: product_tag_on_conflict
+  ): product_tag
+  "update data of the table: \"category\""
+  update_category(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: category_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: category_set_input,
+    "filter the rows which have to be updated"
+    where: category_bool_exp!
+  ): category_mutation_response
+  "update single row of the table: \"category\""
+  update_category_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: category_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: category_set_input,
+    pk_columns: category_pk_columns_input!
+  ): category
+  "update data of the table: \"inventory_item\""
+  update_inventory_item(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: inventory_item_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: inventory_item_set_input,
+    "filter the rows which have to be updated"
+    where: inventory_item_bool_exp!
+  ): inventory_item_mutation_response
+  "update single row of the table: \"inventory_item\""
+  update_inventory_item_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: inventory_item_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: inventory_item_set_input,
+    pk_columns: inventory_item_pk_columns_input!
+  ): inventory_item
+  "update data of the table: \"product\""
+  update_product(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_set_input,
+    "filter the rows which have to be updated"
+    where: product_bool_exp!
+  ): product_mutation_response
+  "update data of the table: \"product_attribute\""
+  update_product_attribute(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_attribute_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_attribute_set_input,
+    "filter the rows which have to be updated"
+    where: product_attribute_bool_exp!
+  ): product_attribute_mutation_response
+  "update single row of the table: \"product_attribute\""
+  update_product_attribute_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_attribute_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_attribute_set_input,
+    pk_columns: product_attribute_pk_columns_input!
+  ): product_attribute
+  "update single row of the table: \"product\""
+  update_product_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_set_input,
+    pk_columns: product_pk_columns_input!
+  ): product
+  "update data of the table: \"product_image\""
+  update_product_image(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_image_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_image_set_input,
+    "filter the rows which have to be updated"
+    where: product_image_bool_exp!
+  ): product_image_mutation_response
+  "update single row of the table: \"product_image\""
+  update_product_image_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_image_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_image_set_input,
+    pk_columns: product_image_pk_columns_input!
+  ): product_image
+  "update data of the table: \"product_status\""
+  update_product_status(
+    "sets the columns of the filtered rows to the given values"
+    _set: product_status_set_input,
+    "filter the rows which have to be updated"
+    where: product_status_bool_exp!
+  ): product_status_mutation_response
+  "update single row of the table: \"product_status\""
+  update_product_status_by_pk(
+    "sets the columns of the filtered rows to the given values"
+    _set: product_status_set_input,
+    pk_columns: product_status_pk_columns_input!
+  ): product_status
+  "update data of the table: \"product_tag\""
+  update_product_tag(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_tag_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_tag_set_input,
+    "filter the rows which have to be updated"
+    where: product_tag_bool_exp!
+  ): product_tag_mutation_response
+  "update single row of the table: \"product_tag\""
+  update_product_tag_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_tag_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: product_tag_set_input,
+    pk_columns: product_tag_pk_columns_input!
+  ): product_tag
+}
+
+"columns and relationships of \"product\""
+type product {
+  "An object relationship"
+  category: category
+  category_id: Int
+  cost: numeric!
+  created_at: timestamptz!
+  description: String
+  id: Int!
+  "An array relationship"
+  inventory_items(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): [inventory_item!]!
+  "An aggregate relationship"
+  inventory_items_aggregate(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): inventory_item_aggregate!
+  price: numeric!
+  "An array relationship"
+  product_attributes(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): [product_attribute!]!
+  "An aggregate relationship"
+  product_attributes_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): product_attribute_aggregate!
+  "An array relationship"
+  product_images(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): [product_image!]!
+  "An aggregate relationship"
+  product_images_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): product_image_aggregate!
+  "An array relationship"
+  product_tags(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): [product_tag!]!
+  "An aggregate relationship"
+  product_tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): product_tag_aggregate!
+  sku: String!
+  status: product_status_enum!
+  thumbnail: String!
+  title: String!
+  updated_at: timestamptz!
+  vendor: String
+}
+
+"aggregated selection of \"product\""
+type product_aggregate {
+  aggregate: product_aggregate_fields
+  nodes: [product!]!
+}
+
+"aggregate fields of \"product\""
+type product_aggregate_fields {
+  avg: product_avg_fields
+  count(columns: [product_select_column!], distinct: Boolean): Int!
+  max: product_max_fields
+  min: product_min_fields
+  stddev: product_stddev_fields
+  stddev_pop: product_stddev_pop_fields
+  stddev_samp: product_stddev_samp_fields
+  sum: product_sum_fields
+  var_pop: product_var_pop_fields
+  var_samp: product_var_samp_fields
+  variance: product_variance_fields
+}
+
+"columns and relationships of \"product_attribute\""
+type product_attribute {
+  label: String!
+  "An object relationship"
+  product: product!
+  product_id: Int!
+  value: String!
+}
+
+"aggregated selection of \"product_attribute\""
+type product_attribute_aggregate {
+  aggregate: product_attribute_aggregate_fields
+  nodes: [product_attribute!]!
+}
+
+"aggregate fields of \"product_attribute\""
+type product_attribute_aggregate_fields {
+  avg: product_attribute_avg_fields
+  count(columns: [product_attribute_select_column!], distinct: Boolean): Int!
+  max: product_attribute_max_fields
+  min: product_attribute_min_fields
+  stddev: product_attribute_stddev_fields
+  stddev_pop: product_attribute_stddev_pop_fields
+  stddev_samp: product_attribute_stddev_samp_fields
+  sum: product_attribute_sum_fields
+  var_pop: product_attribute_var_pop_fields
+  var_samp: product_attribute_var_samp_fields
+  variance: product_attribute_variance_fields
+}
+
+"aggregate avg on columns"
+type product_attribute_avg_fields {
+  product_id: Float
+}
+
+"aggregate max on columns"
+type product_attribute_max_fields {
+  label: String
+  product_id: Int
+  value: String
+}
+
+"aggregate min on columns"
+type product_attribute_min_fields {
+  label: String
+  product_id: Int
+  value: String
+}
+
+"response of any mutation on the table \"product_attribute\""
+type product_attribute_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [product_attribute!]!
+}
+
+"aggregate stddev on columns"
+type product_attribute_stddev_fields {
+  product_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type product_attribute_stddev_pop_fields {
+  product_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type product_attribute_stddev_samp_fields {
+  product_id: Float
+}
+
+"aggregate sum on columns"
+type product_attribute_sum_fields {
+  product_id: Int
+}
+
+"aggregate var_pop on columns"
+type product_attribute_var_pop_fields {
+  product_id: Float
+}
+
+"aggregate var_samp on columns"
+type product_attribute_var_samp_fields {
+  product_id: Float
+}
+
+"aggregate variance on columns"
+type product_attribute_variance_fields {
+  product_id: Float
+}
+
+"aggregate avg on columns"
+type product_avg_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"columns and relationships of \"product_image\""
+type product_image {
+  product_id: Int!
+  src: String!
+  title: String
+}
+
+"aggregated selection of \"product_image\""
+type product_image_aggregate {
+  aggregate: product_image_aggregate_fields
+  nodes: [product_image!]!
+}
+
+"aggregate fields of \"product_image\""
+type product_image_aggregate_fields {
+  avg: product_image_avg_fields
+  count(columns: [product_image_select_column!], distinct: Boolean): Int!
+  max: product_image_max_fields
+  min: product_image_min_fields
+  stddev: product_image_stddev_fields
+  stddev_pop: product_image_stddev_pop_fields
+  stddev_samp: product_image_stddev_samp_fields
+  sum: product_image_sum_fields
+  var_pop: product_image_var_pop_fields
+  var_samp: product_image_var_samp_fields
+  variance: product_image_variance_fields
+}
+
+"aggregate avg on columns"
+type product_image_avg_fields {
+  product_id: Float
+}
+
+"aggregate max on columns"
+type product_image_max_fields {
+  product_id: Int
+  src: String
+  title: String
+}
+
+"aggregate min on columns"
+type product_image_min_fields {
+  product_id: Int
+  src: String
+  title: String
+}
+
+"response of any mutation on the table \"product_image\""
+type product_image_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [product_image!]!
+}
+
+"aggregate stddev on columns"
+type product_image_stddev_fields {
+  product_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type product_image_stddev_pop_fields {
+  product_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type product_image_stddev_samp_fields {
+  product_id: Float
+}
+
+"aggregate sum on columns"
+type product_image_sum_fields {
+  product_id: Int
+}
+
+"aggregate var_pop on columns"
+type product_image_var_pop_fields {
+  product_id: Float
+}
+
+"aggregate var_samp on columns"
+type product_image_var_samp_fields {
+  product_id: Float
+}
+
+"aggregate variance on columns"
+type product_image_variance_fields {
+  product_id: Float
+}
+
+"aggregate max on columns"
+type product_max_fields {
+  category_id: Int
+  cost: numeric
+  created_at: timestamptz
+  description: String
+  id: Int
+  price: numeric
+  sku: String
+  thumbnail: String
+  title: String
+  updated_at: timestamptz
+  vendor: String
+}
+
+"aggregate min on columns"
+type product_min_fields {
+  category_id: Int
+  cost: numeric
+  created_at: timestamptz
+  description: String
+  id: Int
+  price: numeric
+  sku: String
+  thumbnail: String
+  title: String
+  updated_at: timestamptz
+  vendor: String
+}
+
+"response of any mutation on the table \"product\""
+type product_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [product!]!
+}
+
+"columns and relationships of \"product_status\""
+type product_status {
+  value: String!
+}
+
+"aggregated selection of \"product_status\""
+type product_status_aggregate {
+  aggregate: product_status_aggregate_fields
+  nodes: [product_status!]!
+}
+
+"aggregate fields of \"product_status\""
+type product_status_aggregate_fields {
+  count(columns: [product_status_select_column!], distinct: Boolean): Int!
+  max: product_status_max_fields
+  min: product_status_min_fields
+}
+
+"aggregate max on columns"
+type product_status_max_fields {
+  value: String
+}
+
+"aggregate min on columns"
+type product_status_min_fields {
+  value: String
+}
+
+"response of any mutation on the table \"product_status\""
+type product_status_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [product_status!]!
+}
+
+"aggregate stddev on columns"
+type product_stddev_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"aggregate stddev_pop on columns"
+type product_stddev_pop_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"aggregate stddev_samp on columns"
+type product_stddev_samp_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"aggregate sum on columns"
+type product_sum_fields {
+  category_id: Int
+  cost: numeric
+  id: Int
+  price: numeric
+}
+
+"columns and relationships of \"product_tag\""
+type product_tag {
+  "An object relationship"
+  product: product!
+  product_id: Int!
+  title: String!
+}
+
+"aggregated selection of \"product_tag\""
+type product_tag_aggregate {
+  aggregate: product_tag_aggregate_fields
+  nodes: [product_tag!]!
+}
+
+"aggregate fields of \"product_tag\""
+type product_tag_aggregate_fields {
+  avg: product_tag_avg_fields
+  count(columns: [product_tag_select_column!], distinct: Boolean): Int!
+  max: product_tag_max_fields
+  min: product_tag_min_fields
+  stddev: product_tag_stddev_fields
+  stddev_pop: product_tag_stddev_pop_fields
+  stddev_samp: product_tag_stddev_samp_fields
+  sum: product_tag_sum_fields
+  var_pop: product_tag_var_pop_fields
+  var_samp: product_tag_var_samp_fields
+  variance: product_tag_variance_fields
+}
+
+"aggregate avg on columns"
+type product_tag_avg_fields {
+  product_id: Float
+}
+
+"aggregate max on columns"
+type product_tag_max_fields {
+  product_id: Int
+  title: String
+}
+
+"aggregate min on columns"
+type product_tag_min_fields {
+  product_id: Int
+  title: String
+}
+
+"response of any mutation on the table \"product_tag\""
+type product_tag_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [product_tag!]!
+}
+
+"aggregate stddev on columns"
+type product_tag_stddev_fields {
+  product_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type product_tag_stddev_pop_fields {
+  product_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type product_tag_stddev_samp_fields {
+  product_id: Float
+}
+
+"aggregate sum on columns"
+type product_tag_sum_fields {
+  product_id: Int
+}
+
+"aggregate var_pop on columns"
+type product_tag_var_pop_fields {
+  product_id: Float
+}
+
+"aggregate var_samp on columns"
+type product_tag_var_samp_fields {
+  product_id: Float
+}
+
+"aggregate variance on columns"
+type product_tag_variance_fields {
+  product_id: Float
+}
+
+"aggregate var_pop on columns"
+type product_var_pop_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"aggregate var_samp on columns"
+type product_var_samp_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+"aggregate variance on columns"
+type product_variance_fields {
+  category_id: Float
+  cost: Float
+  id: Float
+  price: Float
+}
+
+type query_root {
+  "fetch data from the table: \"category\""
+  category(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): [category!]!
+  "fetch aggregated fields from the table: \"category\""
+  category_aggregate(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): category_aggregate!
+  "fetch data from the table: \"category\" using primary key columns"
+  category_by_pk(id: Int!): category
+  "fetch data from the table: \"inventory_item\""
+  inventory_item(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): [inventory_item!]!
+  "fetch aggregated fields from the table: \"inventory_item\""
+  inventory_item_aggregate(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): inventory_item_aggregate!
+  "fetch data from the table: \"inventory_item\" using primary key columns"
+  inventory_item_by_pk(id: Int!): inventory_item
+  "fetch data from the table: \"product\""
+  product(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): [product!]!
+  "fetch aggregated fields from the table: \"product\""
+  product_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): product_aggregate!
+  "fetch data from the table: \"product_attribute\""
+  product_attribute(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): [product_attribute!]!
+  "fetch aggregated fields from the table: \"product_attribute\""
+  product_attribute_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): product_attribute_aggregate!
+  "fetch data from the table: \"product_attribute\" using primary key columns"
+  product_attribute_by_pk(label: String!, product_id: Int!, value: String!): product_attribute
+  "fetch data from the table: \"product\" using primary key columns"
+  product_by_pk(id: Int!): product
+  "fetch data from the table: \"product_image\""
+  product_image(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): [product_image!]!
+  "fetch aggregated fields from the table: \"product_image\""
+  product_image_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): product_image_aggregate!
+  "fetch data from the table: \"product_image\" using primary key columns"
+  product_image_by_pk(product_id: Int!, src: String!): product_image
+  "fetch data from the table: \"product_status\""
+  product_status(
+    "distinct select on columns"
+    distinct_on: [product_status_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_status_order_by!],
+    "filter the rows returned"
+    where: product_status_bool_exp
+  ): [product_status!]!
+  "fetch aggregated fields from the table: \"product_status\""
+  product_status_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_status_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_status_order_by!],
+    "filter the rows returned"
+    where: product_status_bool_exp
+  ): product_status_aggregate!
+  "fetch data from the table: \"product_status\" using primary key columns"
+  product_status_by_pk(value: String!): product_status
+  "fetch data from the table: \"product_tag\""
+  product_tag(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): [product_tag!]!
+  "fetch aggregated fields from the table: \"product_tag\""
+  product_tag_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): product_tag_aggregate!
+  "fetch data from the table: \"product_tag\" using primary key columns"
+  product_tag_by_pk(product_id: Int!, title: String!): product_tag
+}
+
+type subscription_root {
+  "fetch data from the table: \"category\""
+  category(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): [category!]!
+  "fetch aggregated fields from the table: \"category\""
+  category_aggregate(
+    "distinct select on columns"
+    distinct_on: [category_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [category_order_by!],
+    "filter the rows returned"
+    where: category_bool_exp
+  ): category_aggregate!
+  "fetch data from the table: \"category\" using primary key columns"
+  category_by_pk(id: Int!): category
+  "fetch data from the table: \"inventory_item\""
+  inventory_item(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): [inventory_item!]!
+  "fetch aggregated fields from the table: \"inventory_item\""
+  inventory_item_aggregate(
+    "distinct select on columns"
+    distinct_on: [inventory_item_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [inventory_item_order_by!],
+    "filter the rows returned"
+    where: inventory_item_bool_exp
+  ): inventory_item_aggregate!
+  "fetch data from the table: \"inventory_item\" using primary key columns"
+  inventory_item_by_pk(id: Int!): inventory_item
+  "fetch data from the table: \"product\""
+  product(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): [product!]!
+  "fetch aggregated fields from the table: \"product\""
+  product_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_order_by!],
+    "filter the rows returned"
+    where: product_bool_exp
+  ): product_aggregate!
+  "fetch data from the table: \"product_attribute\""
+  product_attribute(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): [product_attribute!]!
+  "fetch aggregated fields from the table: \"product_attribute\""
+  product_attribute_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_attribute_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_attribute_order_by!],
+    "filter the rows returned"
+    where: product_attribute_bool_exp
+  ): product_attribute_aggregate!
+  "fetch data from the table: \"product_attribute\" using primary key columns"
+  product_attribute_by_pk(label: String!, product_id: Int!, value: String!): product_attribute
+  "fetch data from the table: \"product\" using primary key columns"
+  product_by_pk(id: Int!): product
+  "fetch data from the table: \"product_image\""
+  product_image(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): [product_image!]!
+  "fetch aggregated fields from the table: \"product_image\""
+  product_image_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_image_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_image_order_by!],
+    "filter the rows returned"
+    where: product_image_bool_exp
+  ): product_image_aggregate!
+  "fetch data from the table: \"product_image\" using primary key columns"
+  product_image_by_pk(product_id: Int!, src: String!): product_image
+  "fetch data from the table: \"product_status\""
+  product_status(
+    "distinct select on columns"
+    distinct_on: [product_status_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_status_order_by!],
+    "filter the rows returned"
+    where: product_status_bool_exp
+  ): [product_status!]!
+  "fetch aggregated fields from the table: \"product_status\""
+  product_status_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_status_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_status_order_by!],
+    "filter the rows returned"
+    where: product_status_bool_exp
+  ): product_status_aggregate!
+  "fetch data from the table: \"product_status\" using primary key columns"
+  product_status_by_pk(value: String!): product_status
+  "fetch data from the table: \"product_tag\""
+  product_tag(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): [product_tag!]!
+  "fetch aggregated fields from the table: \"product_tag\""
+  product_tag_aggregate(
+    "distinct select on columns"
+    distinct_on: [product_tag_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [product_tag_order_by!],
+    "filter the rows returned"
+    where: product_tag_bool_exp
+  ): product_tag_aggregate!
+  "fetch data from the table: \"product_tag\" using primary key columns"
+  product_tag_by_pk(product_id: Int!, title: String!): product_tag
+}
+
+"unique or primary key constraints on table \"category\""
+enum category_constraint {
+  "unique or primary key constraint"
+  category_pkey
+}
+
+"select columns of table \"category\""
+enum category_select_column {
+  "column name"
+  id
+  "column name"
+  parent_category_id
+  "column name"
+  slug
+  "column name"
+  title
+}
+
+"update columns of table \"category\""
+enum category_update_column {
+  "column name"
+  id
+  "column name"
+  parent_category_id
+  "column name"
+  slug
+  "column name"
+  title
+}
+
+"unique or primary key constraints on table \"inventory_item\""
+enum inventory_item_constraint {
+  "unique or primary key constraint"
+  inventory_item_pkey
+}
+
+"select columns of table \"inventory_item\""
+enum inventory_item_select_column {
+  "column name"
+  cost
+  "column name"
+  id
+  "column name"
+  size
+  "column name"
+  sku
+}
+
+"update columns of table \"inventory_item\""
+enum inventory_item_update_column {
+  "column name"
+  cost
+  "column name"
+  id
+  "column name"
+  size
+  "column name"
+  sku
+}
+
+"column ordering options"
+enum order_by {
+  "in ascending order, nulls last"
+  asc
+  "in ascending order, nulls first"
+  asc_nulls_first
+  "in ascending order, nulls last"
+  asc_nulls_last
+  "in descending order, nulls first"
+  desc
+  "in descending order, nulls first"
+  desc_nulls_first
+  "in descending order, nulls last"
+  desc_nulls_last
+}
+
+"unique or primary key constraints on table \"product_attribute\""
+enum product_attribute_constraint {
+  "unique or primary key constraint"
+  product_attribute_pkey
+}
+
+"select columns of table \"product_attribute\""
+enum product_attribute_select_column {
+  "column name"
+  label
+  "column name"
+  product_id
+  "column name"
+  value
+}
+
+"update columns of table \"product_attribute\""
+enum product_attribute_update_column {
+  "column name"
+  label
+  "column name"
+  product_id
+  "column name"
+  value
+}
+
+"unique or primary key constraints on table \"product\""
+enum product_constraint {
+  "unique or primary key constraint"
+  product_pkey
+}
+
+"unique or primary key constraints on table \"product_image\""
+enum product_image_constraint {
+  "unique or primary key constraint"
+  product_image_pkey
+}
+
+"select columns of table \"product_image\""
+enum product_image_select_column {
+  "column name"
+  product_id
+  "column name"
+  src
+  "column name"
+  title
+}
+
+"update columns of table \"product_image\""
+enum product_image_update_column {
+  "column name"
+  product_id
+  "column name"
+  src
+  "column name"
+  title
+}
+
+"select columns of table \"product\""
+enum product_select_column {
+  "column name"
+  category_id
+  "column name"
+  cost
+  "column name"
+  created_at
+  "column name"
+  description
+  "column name"
+  id
+  "column name"
+  price
+  "column name"
+  sku
+  "column name"
+  status
+  "column name"
+  thumbnail
+  "column name"
+  title
+  "column name"
+  updated_at
+  "column name"
+  vendor
+}
+
+"unique or primary key constraints on table \"product_status\""
+enum product_status_constraint {
+  "unique or primary key constraint"
+  product_status_pkey
+}
+
+enum product_status_enum {
+  active
+  archived
+  draft
+}
+
+"select columns of table \"product_status\""
+enum product_status_select_column {
+  "column name"
+  value
+}
+
+"update columns of table \"product_status\""
+enum product_status_update_column {
+  "column name"
+  value
+}
+
+"unique or primary key constraints on table \"product_tag\""
+enum product_tag_constraint {
+  "unique or primary key constraint"
+  product_tag_pkey
+}
+
+"select columns of table \"product_tag\""
+enum product_tag_select_column {
+  "column name"
+  product_id
+  "column name"
+  title
+}
+
+"update columns of table \"product_tag\""
+enum product_tag_update_column {
+  "column name"
+  product_id
+  "column name"
+  title
+}
+
+"update columns of table \"product\""
+enum product_update_column {
+  "column name"
+  category_id
+  "column name"
+  cost
+  "column name"
+  created_at
+  "column name"
+  description
+  "column name"
+  id
+  "column name"
+  price
+  "column name"
+  sku
+  "column name"
+  status
+  "column name"
+  thumbnail
+  "column name"
+  title
+  "column name"
+  updated_at
+  "column name"
+  vendor
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'."
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  "does the column match the given case-insensitive pattern"
+  _ilike: String
+  _in: [String!]
+  "does the column match the given POSIX regular expression, case insensitive"
+  _iregex: String
+  _is_null: Boolean
+  "does the column match the given pattern"
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  "does the column NOT match the given case-insensitive pattern"
+  _nilike: String
+  _nin: [String!]
+  "does the column NOT match the given POSIX regular expression, case insensitive"
+  _niregex: String
+  "does the column NOT match the given pattern"
+  _nlike: String
+  "does the column NOT match the given POSIX regular expression, case sensitive"
+  _nregex: String
+  "does the column NOT match the given SQL regular expression"
+  _nsimilar: String
+  "does the column match the given POSIX regular expression, case sensitive"
+  _regex: String
+  "does the column match the given SQL regular expression"
+  _similar: String
+}
+
+"order by aggregate values of table \"category\""
+input category_aggregate_order_by {
+  avg: category_avg_order_by
+  count: order_by
+  max: category_max_order_by
+  min: category_min_order_by
+  stddev: category_stddev_order_by
+  stddev_pop: category_stddev_pop_order_by
+  stddev_samp: category_stddev_samp_order_by
+  sum: category_sum_order_by
+  var_pop: category_var_pop_order_by
+  var_samp: category_var_samp_order_by
+  variance: category_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"category\""
+input category_arr_rel_insert_input {
+  data: [category_insert_input!]!
+  "on conflict condition"
+  on_conflict: category_on_conflict
+}
+
+"order by avg() on columns of table \"category\""
+input category_avg_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"Boolean expression to filter rows from the table \"category\". All fields are combined with a logical 'AND'."
+input category_bool_exp {
+  _and: [category_bool_exp!]
+  _not: category_bool_exp
+  _or: [category_bool_exp!]
+  id: Int_comparison_exp
+  parent_category: category_bool_exp
+  parent_category_id: Int_comparison_exp
+  products: product_bool_exp
+  slug: String_comparison_exp
+  sub_categories: category_bool_exp
+  title: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"category\""
+input category_inc_input {
+  id: Int
+  parent_category_id: Int
+}
+
+"input type for inserting data into table \"category\""
+input category_insert_input {
+  id: Int
+  parent_category: category_obj_rel_insert_input
+  parent_category_id: Int
+  products: product_arr_rel_insert_input
+  slug: String
+  sub_categories: category_arr_rel_insert_input
+  title: String
+}
+
+"order by max() on columns of table \"category\""
+input category_max_order_by {
+  id: order_by
+  parent_category_id: order_by
+  slug: order_by
+  title: order_by
+}
+
+"order by min() on columns of table \"category\""
+input category_min_order_by {
+  id: order_by
+  parent_category_id: order_by
+  slug: order_by
+  title: order_by
+}
+
+"input type for inserting object relation for remote table \"category\""
+input category_obj_rel_insert_input {
+  data: category_insert_input!
+  "on conflict condition"
+  on_conflict: category_on_conflict
+}
+
+"on conflict condition type for table \"category\""
+input category_on_conflict {
+  constraint: category_constraint!
+  update_columns: [category_update_column!]!
+  where: category_bool_exp
+}
+
+"Ordering options when selecting data from \"category\"."
+input category_order_by {
+  id: order_by
+  parent_category: category_order_by
+  parent_category_id: order_by
+  products_aggregate: product_aggregate_order_by
+  slug: order_by
+  sub_categories_aggregate: category_aggregate_order_by
+  title: order_by
+}
+
+"primary key columns input for table: category"
+input category_pk_columns_input {
+  id: Int!
+}
+
+"input type for updating data in table \"category\""
+input category_set_input {
+  id: Int
+  parent_category_id: Int
+  slug: String
+  title: String
+}
+
+"order by stddev() on columns of table \"category\""
+input category_stddev_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by stddev_pop() on columns of table \"category\""
+input category_stddev_pop_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by stddev_samp() on columns of table \"category\""
+input category_stddev_samp_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by sum() on columns of table \"category\""
+input category_sum_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by var_pop() on columns of table \"category\""
+input category_var_pop_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by var_samp() on columns of table \"category\""
+input category_var_samp_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by variance() on columns of table \"category\""
+input category_variance_order_by {
+  id: order_by
+  parent_category_id: order_by
+}
+
+"order by aggregate values of table \"inventory_item\""
+input inventory_item_aggregate_order_by {
+  avg: inventory_item_avg_order_by
+  count: order_by
+  max: inventory_item_max_order_by
+  min: inventory_item_min_order_by
+  stddev: inventory_item_stddev_order_by
+  stddev_pop: inventory_item_stddev_pop_order_by
+  stddev_samp: inventory_item_stddev_samp_order_by
+  sum: inventory_item_sum_order_by
+  var_pop: inventory_item_var_pop_order_by
+  var_samp: inventory_item_var_samp_order_by
+  variance: inventory_item_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"inventory_item\""
+input inventory_item_arr_rel_insert_input {
+  data: [inventory_item_insert_input!]!
+  "on conflict condition"
+  on_conflict: inventory_item_on_conflict
+}
+
+"order by avg() on columns of table \"inventory_item\""
+input inventory_item_avg_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"Boolean expression to filter rows from the table \"inventory_item\". All fields are combined with a logical 'AND'."
+input inventory_item_bool_exp {
+  _and: [inventory_item_bool_exp!]
+  _not: inventory_item_bool_exp
+  _or: [inventory_item_bool_exp!]
+  cost: numeric_comparison_exp
+  id: Int_comparison_exp
+  size: numeric_comparison_exp
+  sku: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"inventory_item\""
+input inventory_item_inc_input {
+  cost: numeric
+  id: Int
+  size: numeric
+}
+
+"input type for inserting data into table \"inventory_item\""
+input inventory_item_insert_input {
+  cost: numeric
+  id: Int
+  size: numeric
+  sku: String
+}
+
+"order by max() on columns of table \"inventory_item\""
+input inventory_item_max_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+  sku: order_by
+}
+
+"order by min() on columns of table \"inventory_item\""
+input inventory_item_min_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+  sku: order_by
+}
+
+"on conflict condition type for table \"inventory_item\""
+input inventory_item_on_conflict {
+  constraint: inventory_item_constraint!
+  update_columns: [inventory_item_update_column!]!
+  where: inventory_item_bool_exp
+}
+
+"Ordering options when selecting data from \"inventory_item\"."
+input inventory_item_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+  sku: order_by
+}
+
+"primary key columns input for table: inventory_item"
+input inventory_item_pk_columns_input {
+  id: Int!
+}
+
+"input type for updating data in table \"inventory_item\""
+input inventory_item_set_input {
+  cost: numeric
+  id: Int
+  size: numeric
+  sku: String
+}
+
+"order by stddev() on columns of table \"inventory_item\""
+input inventory_item_stddev_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by stddev_pop() on columns of table \"inventory_item\""
+input inventory_item_stddev_pop_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by stddev_samp() on columns of table \"inventory_item\""
+input inventory_item_stddev_samp_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by sum() on columns of table \"inventory_item\""
+input inventory_item_sum_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by var_pop() on columns of table \"inventory_item\""
+input inventory_item_var_pop_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by var_samp() on columns of table \"inventory_item\""
+input inventory_item_var_samp_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"order by variance() on columns of table \"inventory_item\""
+input inventory_item_variance_order_by {
+  cost: order_by
+  id: order_by
+  size: order_by
+}
+
+"Boolean expression to compare columns of type \"numeric\". All fields are combined with logical 'AND'."
+input numeric_comparison_exp {
+  _eq: numeric
+  _gt: numeric
+  _gte: numeric
+  _in: [numeric!]
+  _is_null: Boolean
+  _lt: numeric
+  _lte: numeric
+  _neq: numeric
+  _nin: [numeric!]
+}
+
+"order by aggregate values of table \"product\""
+input product_aggregate_order_by {
+  avg: product_avg_order_by
+  count: order_by
+  max: product_max_order_by
+  min: product_min_order_by
+  stddev: product_stddev_order_by
+  stddev_pop: product_stddev_pop_order_by
+  stddev_samp: product_stddev_samp_order_by
+  sum: product_sum_order_by
+  var_pop: product_var_pop_order_by
+  var_samp: product_var_samp_order_by
+  variance: product_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"product\""
+input product_arr_rel_insert_input {
+  data: [product_insert_input!]!
+  "on conflict condition"
+  on_conflict: product_on_conflict
+}
+
+"order by aggregate values of table \"product_attribute\""
+input product_attribute_aggregate_order_by {
+  avg: product_attribute_avg_order_by
+  count: order_by
+  max: product_attribute_max_order_by
+  min: product_attribute_min_order_by
+  stddev: product_attribute_stddev_order_by
+  stddev_pop: product_attribute_stddev_pop_order_by
+  stddev_samp: product_attribute_stddev_samp_order_by
+  sum: product_attribute_sum_order_by
+  var_pop: product_attribute_var_pop_order_by
+  var_samp: product_attribute_var_samp_order_by
+  variance: product_attribute_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"product_attribute\""
+input product_attribute_arr_rel_insert_input {
+  data: [product_attribute_insert_input!]!
+  "on conflict condition"
+  on_conflict: product_attribute_on_conflict
+}
+
+"order by avg() on columns of table \"product_attribute\""
+input product_attribute_avg_order_by {
+  product_id: order_by
+}
+
+"Boolean expression to filter rows from the table \"product_attribute\". All fields are combined with a logical 'AND'."
+input product_attribute_bool_exp {
+  _and: [product_attribute_bool_exp!]
+  _not: product_attribute_bool_exp
+  _or: [product_attribute_bool_exp!]
+  label: String_comparison_exp
+  product: product_bool_exp
+  product_id: Int_comparison_exp
+  value: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"product_attribute\""
+input product_attribute_inc_input {
+  product_id: Int
+}
+
+"input type for inserting data into table \"product_attribute\""
+input product_attribute_insert_input {
+  label: String
+  product: product_obj_rel_insert_input
+  product_id: Int
+  value: String
+}
+
+"order by max() on columns of table \"product_attribute\""
+input product_attribute_max_order_by {
+  label: order_by
+  product_id: order_by
+  value: order_by
+}
+
+"order by min() on columns of table \"product_attribute\""
+input product_attribute_min_order_by {
+  label: order_by
+  product_id: order_by
+  value: order_by
+}
+
+"on conflict condition type for table \"product_attribute\""
+input product_attribute_on_conflict {
+  constraint: product_attribute_constraint!
+  update_columns: [product_attribute_update_column!]!
+  where: product_attribute_bool_exp
+}
+
+"Ordering options when selecting data from \"product_attribute\"."
+input product_attribute_order_by {
+  label: order_by
+  product: product_order_by
+  product_id: order_by
+  value: order_by
+}
+
+"primary key columns input for table: product_attribute"
+input product_attribute_pk_columns_input {
+  label: String!
+  product_id: Int!
+  value: String!
+}
+
+"input type for updating data in table \"product_attribute\""
+input product_attribute_set_input {
+  label: String
+  product_id: Int
+  value: String
+}
+
+"order by stddev() on columns of table \"product_attribute\""
+input product_attribute_stddev_order_by {
+  product_id: order_by
+}
+
+"order by stddev_pop() on columns of table \"product_attribute\""
+input product_attribute_stddev_pop_order_by {
+  product_id: order_by
+}
+
+"order by stddev_samp() on columns of table \"product_attribute\""
+input product_attribute_stddev_samp_order_by {
+  product_id: order_by
+}
+
+"order by sum() on columns of table \"product_attribute\""
+input product_attribute_sum_order_by {
+  product_id: order_by
+}
+
+"order by var_pop() on columns of table \"product_attribute\""
+input product_attribute_var_pop_order_by {
+  product_id: order_by
+}
+
+"order by var_samp() on columns of table \"product_attribute\""
+input product_attribute_var_samp_order_by {
+  product_id: order_by
+}
+
+"order by variance() on columns of table \"product_attribute\""
+input product_attribute_variance_order_by {
+  product_id: order_by
+}
+
+"order by avg() on columns of table \"product\""
+input product_avg_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"Boolean expression to filter rows from the table \"product\". All fields are combined with a logical 'AND'."
+input product_bool_exp {
+  _and: [product_bool_exp!]
+  _not: product_bool_exp
+  _or: [product_bool_exp!]
+  category: category_bool_exp
+  category_id: Int_comparison_exp
+  cost: numeric_comparison_exp
+  created_at: timestamptz_comparison_exp
+  description: String_comparison_exp
+  id: Int_comparison_exp
+  inventory_items: inventory_item_bool_exp
+  price: numeric_comparison_exp
+  product_attributes: product_attribute_bool_exp
+  product_images: product_image_bool_exp
+  product_tags: product_tag_bool_exp
+  sku: String_comparison_exp
+  status: product_status_enum_comparison_exp
+  thumbnail: String_comparison_exp
+  title: String_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  vendor: String_comparison_exp
+}
+
+"order by aggregate values of table \"product_image\""
+input product_image_aggregate_order_by {
+  avg: product_image_avg_order_by
+  count: order_by
+  max: product_image_max_order_by
+  min: product_image_min_order_by
+  stddev: product_image_stddev_order_by
+  stddev_pop: product_image_stddev_pop_order_by
+  stddev_samp: product_image_stddev_samp_order_by
+  sum: product_image_sum_order_by
+  var_pop: product_image_var_pop_order_by
+  var_samp: product_image_var_samp_order_by
+  variance: product_image_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"product_image\""
+input product_image_arr_rel_insert_input {
+  data: [product_image_insert_input!]!
+  "on conflict condition"
+  on_conflict: product_image_on_conflict
+}
+
+"order by avg() on columns of table \"product_image\""
+input product_image_avg_order_by {
+  product_id: order_by
+}
+
+"Boolean expression to filter rows from the table \"product_image\". All fields are combined with a logical 'AND'."
+input product_image_bool_exp {
+  _and: [product_image_bool_exp!]
+  _not: product_image_bool_exp
+  _or: [product_image_bool_exp!]
+  product_id: Int_comparison_exp
+  src: String_comparison_exp
+  title: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"product_image\""
+input product_image_inc_input {
+  product_id: Int
+}
+
+"input type for inserting data into table \"product_image\""
+input product_image_insert_input {
+  product_id: Int
+  src: String
+  title: String
+}
+
+"order by max() on columns of table \"product_image\""
+input product_image_max_order_by {
+  product_id: order_by
+  src: order_by
+  title: order_by
+}
+
+"order by min() on columns of table \"product_image\""
+input product_image_min_order_by {
+  product_id: order_by
+  src: order_by
+  title: order_by
+}
+
+"on conflict condition type for table \"product_image\""
+input product_image_on_conflict {
+  constraint: product_image_constraint!
+  update_columns: [product_image_update_column!]!
+  where: product_image_bool_exp
+}
+
+"Ordering options when selecting data from \"product_image\"."
+input product_image_order_by {
+  product_id: order_by
+  src: order_by
+  title: order_by
+}
+
+"primary key columns input for table: product_image"
+input product_image_pk_columns_input {
+  product_id: Int!
+  src: String!
+}
+
+"input type for updating data in table \"product_image\""
+input product_image_set_input {
+  product_id: Int
+  src: String
+  title: String
+}
+
+"order by stddev() on columns of table \"product_image\""
+input product_image_stddev_order_by {
+  product_id: order_by
+}
+
+"order by stddev_pop() on columns of table \"product_image\""
+input product_image_stddev_pop_order_by {
+  product_id: order_by
+}
+
+"order by stddev_samp() on columns of table \"product_image\""
+input product_image_stddev_samp_order_by {
+  product_id: order_by
+}
+
+"order by sum() on columns of table \"product_image\""
+input product_image_sum_order_by {
+  product_id: order_by
+}
+
+"order by var_pop() on columns of table \"product_image\""
+input product_image_var_pop_order_by {
+  product_id: order_by
+}
+
+"order by var_samp() on columns of table \"product_image\""
+input product_image_var_samp_order_by {
+  product_id: order_by
+}
+
+"order by variance() on columns of table \"product_image\""
+input product_image_variance_order_by {
+  product_id: order_by
+}
+
+"input type for incrementing numeric columns in table \"product\""
+input product_inc_input {
+  category_id: Int
+  cost: numeric
+  id: Int
+  price: numeric
+}
+
+"input type for inserting data into table \"product\""
+input product_insert_input {
+  category: category_obj_rel_insert_input
+  category_id: Int
+  cost: numeric
+  created_at: timestamptz
+  description: String
+  id: Int
+  inventory_items: inventory_item_arr_rel_insert_input
+  price: numeric
+  product_attributes: product_attribute_arr_rel_insert_input
+  product_images: product_image_arr_rel_insert_input
+  product_tags: product_tag_arr_rel_insert_input
+  sku: String
+  status: product_status_enum
+  thumbnail: String
+  title: String
+  updated_at: timestamptz
+  vendor: String
+}
+
+"order by max() on columns of table \"product\""
+input product_max_order_by {
+  category_id: order_by
+  cost: order_by
+  created_at: order_by
+  description: order_by
+  id: order_by
+  price: order_by
+  sku: order_by
+  thumbnail: order_by
+  title: order_by
+  updated_at: order_by
+  vendor: order_by
+}
+
+"order by min() on columns of table \"product\""
+input product_min_order_by {
+  category_id: order_by
+  cost: order_by
+  created_at: order_by
+  description: order_by
+  id: order_by
+  price: order_by
+  sku: order_by
+  thumbnail: order_by
+  title: order_by
+  updated_at: order_by
+  vendor: order_by
+}
+
+"input type for inserting object relation for remote table \"product\""
+input product_obj_rel_insert_input {
+  data: product_insert_input!
+  "on conflict condition"
+  on_conflict: product_on_conflict
+}
+
+"on conflict condition type for table \"product\""
+input product_on_conflict {
+  constraint: product_constraint!
+  update_columns: [product_update_column!]!
+  where: product_bool_exp
+}
+
+"Ordering options when selecting data from \"product\"."
+input product_order_by {
+  category: category_order_by
+  category_id: order_by
+  cost: order_by
+  created_at: order_by
+  description: order_by
+  id: order_by
+  inventory_items_aggregate: inventory_item_aggregate_order_by
+  price: order_by
+  product_attributes_aggregate: product_attribute_aggregate_order_by
+  product_images_aggregate: product_image_aggregate_order_by
+  product_tags_aggregate: product_tag_aggregate_order_by
+  sku: order_by
+  status: order_by
+  thumbnail: order_by
+  title: order_by
+  updated_at: order_by
+  vendor: order_by
+}
+
+"primary key columns input for table: product"
+input product_pk_columns_input {
+  id: Int!
+}
+
+"input type for updating data in table \"product\""
+input product_set_input {
+  category_id: Int
+  cost: numeric
+  created_at: timestamptz
+  description: String
+  id: Int
+  price: numeric
+  sku: String
+  status: product_status_enum
+  thumbnail: String
+  title: String
+  updated_at: timestamptz
+  vendor: String
+}
+
+"Boolean expression to filter rows from the table \"product_status\". All fields are combined with a logical 'AND'."
+input product_status_bool_exp {
+  _and: [product_status_bool_exp!]
+  _not: product_status_bool_exp
+  _or: [product_status_bool_exp!]
+  value: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"product_status_enum\". All fields are combined with logical 'AND'."
+input product_status_enum_comparison_exp {
+  _eq: product_status_enum
+  _in: [product_status_enum!]
+  _is_null: Boolean
+  _neq: product_status_enum
+  _nin: [product_status_enum!]
+}
+
+"input type for inserting data into table \"product_status\""
+input product_status_insert_input {
+  value: String
+}
+
+"on conflict condition type for table \"product_status\""
+input product_status_on_conflict {
+  constraint: product_status_constraint!
+  update_columns: [product_status_update_column!]!
+  where: product_status_bool_exp
+}
+
+"Ordering options when selecting data from \"product_status\"."
+input product_status_order_by {
+  value: order_by
+}
+
+"primary key columns input for table: product_status"
+input product_status_pk_columns_input {
+  value: String!
+}
+
+"input type for updating data in table \"product_status\""
+input product_status_set_input {
+  value: String
+}
+
+"order by stddev() on columns of table \"product\""
+input product_stddev_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by stddev_pop() on columns of table \"product\""
+input product_stddev_pop_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by stddev_samp() on columns of table \"product\""
+input product_stddev_samp_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by sum() on columns of table \"product\""
+input product_sum_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by aggregate values of table \"product_tag\""
+input product_tag_aggregate_order_by {
+  avg: product_tag_avg_order_by
+  count: order_by
+  max: product_tag_max_order_by
+  min: product_tag_min_order_by
+  stddev: product_tag_stddev_order_by
+  stddev_pop: product_tag_stddev_pop_order_by
+  stddev_samp: product_tag_stddev_samp_order_by
+  sum: product_tag_sum_order_by
+  var_pop: product_tag_var_pop_order_by
+  var_samp: product_tag_var_samp_order_by
+  variance: product_tag_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"product_tag\""
+input product_tag_arr_rel_insert_input {
+  data: [product_tag_insert_input!]!
+  "on conflict condition"
+  on_conflict: product_tag_on_conflict
+}
+
+"order by avg() on columns of table \"product_tag\""
+input product_tag_avg_order_by {
+  product_id: order_by
+}
+
+"Boolean expression to filter rows from the table \"product_tag\". All fields are combined with a logical 'AND'."
+input product_tag_bool_exp {
+  _and: [product_tag_bool_exp!]
+  _not: product_tag_bool_exp
+  _or: [product_tag_bool_exp!]
+  product: product_bool_exp
+  product_id: Int_comparison_exp
+  title: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"product_tag\""
+input product_tag_inc_input {
+  product_id: Int
+}
+
+"input type for inserting data into table \"product_tag\""
+input product_tag_insert_input {
+  product: product_obj_rel_insert_input
+  product_id: Int
+  title: String
+}
+
+"order by max() on columns of table \"product_tag\""
+input product_tag_max_order_by {
+  product_id: order_by
+  title: order_by
+}
+
+"order by min() on columns of table \"product_tag\""
+input product_tag_min_order_by {
+  product_id: order_by
+  title: order_by
+}
+
+"on conflict condition type for table \"product_tag\""
+input product_tag_on_conflict {
+  constraint: product_tag_constraint!
+  update_columns: [product_tag_update_column!]!
+  where: product_tag_bool_exp
+}
+
+"Ordering options when selecting data from \"product_tag\"."
+input product_tag_order_by {
+  product: product_order_by
+  product_id: order_by
+  title: order_by
+}
+
+"primary key columns input for table: product_tag"
+input product_tag_pk_columns_input {
+  product_id: Int!
+  title: String!
+}
+
+"input type for updating data in table \"product_tag\""
+input product_tag_set_input {
+  product_id: Int
+  title: String
+}
+
+"order by stddev() on columns of table \"product_tag\""
+input product_tag_stddev_order_by {
+  product_id: order_by
+}
+
+"order by stddev_pop() on columns of table \"product_tag\""
+input product_tag_stddev_pop_order_by {
+  product_id: order_by
+}
+
+"order by stddev_samp() on columns of table \"product_tag\""
+input product_tag_stddev_samp_order_by {
+  product_id: order_by
+}
+
+"order by sum() on columns of table \"product_tag\""
+input product_tag_sum_order_by {
+  product_id: order_by
+}
+
+"order by var_pop() on columns of table \"product_tag\""
+input product_tag_var_pop_order_by {
+  product_id: order_by
+}
+
+"order by var_samp() on columns of table \"product_tag\""
+input product_tag_var_samp_order_by {
+  product_id: order_by
+}
+
+"order by variance() on columns of table \"product_tag\""
+input product_tag_variance_order_by {
+  product_id: order_by
+}
+
+"order by var_pop() on columns of table \"product\""
+input product_var_pop_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by var_samp() on columns of table \"product\""
+input product_var_samp_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"order by variance() on columns of table \"product\""
+input product_variance_order_by {
+  category_id: order_by
+  cost: order_by
+  id: order_by
+  price: order_by
+}
+
+"Boolean expression to compare columns of type \"timestamptz\". All fields are combined with logical 'AND'."
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
+
+scalar numeric
+
+scalar timestamptz
