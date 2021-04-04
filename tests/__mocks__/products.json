@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "createdAt": "2020-01-01T00:00Z",
+      "updatedAt": "2020-01-01T00:00Z",
+      "attributes": [
+        {
+          "label": "Материал верха",
+          "value": "текстиль"
+        },
+        {
+          "label": "Внутренний материал",
+          "value": "текстиль"
+        },
+        {
+          "label": "Материал подошвы",
+          "value": "искусственный материал"
+        },
+        {
+          "label": "Материал стельки",
+          "value": "текстиль"
+        },
+        {
+          "label": "Сезон",
+          "value": "мульти"
+        },
+        {
+          "label": "Цвет",
+          "value": "белый"
+        },
+        {
+          "label": "Вид спорта",
+          "value": "спорт стиль"
+        },
+        {
+          "label": "Страна производства",
+          "value": "Индонезия"
+        },
+        {
+          "label": "Застежка",
+          "value": "шнурки"
+        },
+        {
+          "label": "Застежка",
+          "value": "шнурки"
+        }
+      ],
+      "category": {
+        "id": 1,
+        "slug": "men",
+        "title": "Мужская обувь",
+        "parentCategory": null,
+        "subCategories": []
+      },
+      "cost": 5000,
+      "description": "Кроссовки Nike Air Max 270 — первая повседневная модель Nike Air Max со стильной и удобной увеличенной воздушной вставкой. Конструкция, дизайн которой вдохновлен легендарными моделями Air Max, акцентирует внимание на инновационной технологии Nike благодаря большому прозрачному «окну» Air и свежей расцветке.",
+      "images": [
+        {
+          "title": "Вид сбоку",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-1.jpeg?alt=media&token=b2965ce7-403b-4fe6-a1e8-0c8263c0b977"
+        },
+        {
+          "title": "Вид сбоку",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-2.jpeg?alt=media&token=a14670ff-24e5-45c3-8b23-b6b1dbc3cfae"
+        },
+        {
+          "title": "Вид снизу",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-6.jpeg?alt=media&token=1267dcb2-f0af-4225-9013-cab699571992"
+        },
+        {
+          "title": "Вид свеху",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-5.jpeg?alt=media&token=834c6442-d2e3-47ec-b948-a7cd80b69646"
+        },
+        {
+          "title": "Вид спереди",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-3.jpeg?alt=media&token=7b59e6a9-b893-42c7-8c0b-731927e19908"
+        },
+        {
+          "title": "Вид сзади",
+          "src": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fair-max-270-4.jpeg?alt=media&token=5efb121f-2e26-4058-87d4-cd2139f26e38"
+        }
+      ],
+      "inventoryItems": [
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 39
+        },
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 40
+        },
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 41
+        },
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 42
+        },
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 43
+        },
+        {
+          "id": 1,
+          "sku": "DM2462-002",
+          "cost": 5000,
+          "size": 44
+        }
+      ],
+      "price": 12999,
+      "sku": "DM2462-002",
+      "status": "active",
+      "tags": [
+        {
+          "title": "спорт"
+        }
+      ],
+      "thumbnail": "https://firebasestorage.googleapis.com/v0/b/women-s-shoes.appspot.com/o/nike%2Fair-max-270%2Fthumbnail.png?alt=media&token=87e87a4b-3176-4dae-829b-3ddb3a755eb2",
+      "title": "Кроссовки Air Max 270 Ess",
+      "vendor": "Nike"
+    }
+  ]
+}
